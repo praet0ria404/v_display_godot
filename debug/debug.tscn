@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://crkixo8gkaako"]
+
+[ext_resource type="Script" uid="uid://b04d77hro2ad4" path="res://debug/debug.gd" id="1_ikwhb"]
+
+[node name="Debug" type="Node2D"]
+script = ExtResource("1_ikwhb")
+
+[node name="Points" type="Node2D" parent="."]

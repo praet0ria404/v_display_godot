@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://df0m51kwlci2g"]
+
+[ext_resource type="Script" uid="uid://c712nsk41vul4" path="res://titlescreen/titlescreen_button.gd" id="1_1yeqr"]
+[ext_resource type="FontFile" uid="uid://knkhpafjxqt0" path="res://fonts/Pixel Game.otf" id="2_0hynr"]
+[ext_resource type="Texture2D" uid="uid://khbpi2vrgwon" path="res://titlescreen/start_button.png" id="3_0hynr"]
+
+[node name="TitlescreenButton" type="Node2D"]
+script = ExtResource("1_1yeqr")
+
+[node name="Label1" type="Label" parent="."]
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_0hynr")
+theme_override_font_sizes/font_size = 40
+text = "test"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 360.0
+offset_top = 8.0
+offset_right = 406.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_0hynr")
+theme_override_font_sizes/font_size = 40
+text = "[s]"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(93, 27)
+texture = ExtResource("3_0hynr")
+
+[node name="Overlay" type="ColorRect" parent="."]
+offset_left = -178.0
+offset_top = 14.0
+offset_right = 640.0
+offset_bottom = 39.0
+color = Color(1, 1, 1, 0)

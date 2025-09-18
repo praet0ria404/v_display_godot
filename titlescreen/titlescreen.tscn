@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://d80xcxi31t1l"]
+
+[ext_resource type="Script" uid="uid://sl8i40c8vr2x" path="res://titlescreen/titlescreen.gd" id="1_0f87v"]
+[ext_resource type="Texture2D" uid="uid://c6cco0qpbpqlc" path="res://titlescreen/titlescreen_background.png" id="1_t13nr"]
+[ext_resource type="Texture2D" uid="uid://cwfqj7vfcj8f1" path="res://titlescreen/logo.png" id="2_gkwka"]
+[ext_resource type="PackedScene" uid="uid://df0m51kwlci2g" path="res://titlescreen/titlescreen_button.tscn" id="3_5ebrv"]
+[ext_resource type="FontFile" uid="uid://knkhpafjxqt0" path="res://fonts/Pixel Game.otf" id="4_5ebrv"]
+
+[node name="Titlescreen" type="Node2D"]
+script = ExtResource("1_0f87v")
+metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+texture = ExtResource("1_t13nr")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(320, 96)
+texture = ExtResource("2_gkwka")
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="TitlescreenButton1" parent="Buttons" instance=ExtResource("3_5ebrv")]
+position = Vector2(48, 192)
+
+[node name="TitlescreenButton2" parent="Buttons" instance=ExtResource("3_5ebrv")]
+position = Vector2(48, 232)
+ButtonType = 1
+
+[node name="TitlescreenButton3" parent="Buttons" instance=ExtResource("3_5ebrv")]
+position = Vector2(48, 272)
+ButtonType = 2
+
+[node name="TitlescreenButton4" parent="Buttons" instance=ExtResource("3_5ebrv")]
+position = Vector2(48, 312)
+ButtonType = 3
+
+[node name="CopyrightLabel" type="Label" parent="."]
+offset_top = 448.0
+offset_right = 640.0
+offset_bottom = 482.0
+theme_override_colors/font_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_fonts/font = ExtResource("4_5ebrv")
+theme_override_font_sizes/font_size = 20
+text = "©Praet0ria101"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true

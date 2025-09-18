@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhyqa17ktgwcv"]
+
+[ext_resource type="Texture2D" uid="uid://dnehtdfd1daie" path="res://model/body.png" id="2_slb54"]
+
+[node name="NetworkManager" type="Node"]
+
+[node name="Face" type="Node2D" parent="."]
+
+[node name="Eyes" type="Node2D" parent="Face"]
+
+[node name="LeftEye" type="ColorRect" parent="Face/Eyes"]
+offset_left = 448.0
+offset_top = 88.0
+offset_right = 488.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="Face/Eyes/LeftEye"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -21.0
+offset_right = 60.0
+offset_bottom = 2.0
+text = "Left Eye"
+
+[node name="RightEye" type="ColorRect" parent="Face/Eyes"]
+offset_left = 560.0
+offset_top = 88.0
+offset_right = 600.0
+offset_bottom = 128.0
+
+[node name="Label2" type="Label" parent="Face/Eyes/RightEye"]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 71.0
+text = "Right Eye"
+
+[node name="Line2D" type="Line2D" parent="Face"]
+points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+texture = ExtResource("2_slb54")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.32)
