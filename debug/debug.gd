@@ -48,3 +48,12 @@ func _process(_delta: float) -> void:
 			LeftEye.self_modulate = Color8(255, 0, 0)
 		else:
 			LeftEye.self_modulate = Color8(255, 255, 255)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("shift"):
+		get_tree().change_scene_to_packed(
+			load("res://titlescreen/titlescreen.tscn")
+		)
+
+

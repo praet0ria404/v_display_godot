@@ -1,8 +1,5 @@
-class_name Main
+class_name Config 
 extends Node2D
-
-
-var NetworkManagerInstance: NetworkManager = NetworkManager.new()
 
 
 func _input(event: InputEvent) -> void:
@@ -10,4 +7,3 @@ func _input(event: InputEvent) -> void:
 		get_tree().change_scene_to_packed(
 			load("res://titlescreen/titlescreen.tscn")
 		)
-
