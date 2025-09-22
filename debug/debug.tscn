@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://crkixo8gkaako"]
+[gd_scene load_steps=3 format=3 uid="uid://crkixo8gkaako"]
 
 [ext_resource type="Script" uid="uid://b04d77hro2ad4" path="res://debug/debug.gd" id="1_ikwhb"]
+[ext_resource type="Texture2D" uid="uid://c6cco0qpbpqlc" path="res://titlescreen/titlescreen_background.png" id="2_ifkhq"]
 
 [node name="Debug" type="Node2D"]
 script = ExtResource("1_ikwhb")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+texture = ExtResource("2_ifkhq")
 
 [node name="Points" type="Node2D" parent="."]
