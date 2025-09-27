@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtx5tjtc387oy"]
+[gd_scene load_steps=4 format=3 uid="uid://dtx5tjtc387oy"]
 
 [ext_resource type="Script" uid="uid://c648jryxvsbfu" path="res://main/main.gd" id="1_53q0u"]
 [ext_resource type="Texture2D" uid="uid://c6cco0qpbpqlc" path="res://titlescreen/titlescreen_background.png" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://ckpuuq50t5sg7" path="res://start/start.tscn" id="3_xwkvk"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
@@ -12,3 +13,5 @@ texture = ExtResource("2_pjrb6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.00834)
+
+[node name="Start" parent="." instance=ExtResource("3_xwkvk")]

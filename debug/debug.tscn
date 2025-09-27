@@ -11,3 +11,15 @@ position = Vector2(320, 240)
 texture = ExtResource("2_ifkhq")
 
 [node name="Points" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 368.0
+offset_top = 80.0
+offset_right = 408.0
+offset_bottom = 120.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 432.0
+offset_top = 80.0
+offset_right = 472.0
+offset_bottom = 120.0

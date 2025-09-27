@@ -23,6 +23,8 @@ var y_packets: Array[float]
 var x_packets: Array[float]
 var has_packets: bool
 
+var new_thread: Thread
+
 
 func get_unix_time() -> float:
 	return self.unix_time
@@ -78,6 +80,16 @@ func get_y_packets() -> Array[float]:
 
 func has_packet() -> bool:
 	return Peer.get_available_packet_count() > 0
+
+
+func start_osf() -> void:
+	new_thread = Thread.new()
+	new_thread.start(Callable(self, '_thread'))
+
+
+func _thread() -> void:
+	print("start new thread")
+	OS.execute('python3', ['open_see_face/OpenSeeFace-master/facetracker.py', '-p 4433', '-v 2'])
 
 
 func _init() -> void:
@@ -177,3 +189,5 @@ func _print_debug() -> void:
 	print("PNP error: " + str(pnp_error))
 	print("Quaternion: " + str(quaternion))
 	print("Euler: " + str(euler))
+
+
