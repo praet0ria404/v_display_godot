@@ -1,4 +1,5 @@
 class_name NetworkManager
+extends Node
 
 
 const DOUBLE: Array = [8, "d"]
@@ -97,6 +98,7 @@ func _init() -> void:
 
 
 func _connect_to_port() -> void:
+	print("Connected")
 	Peer.bind(4433)
 
 
@@ -189,5 +191,3 @@ func _print_debug() -> void:
 	print("PNP error: " + str(pnp_error))
 	print("Quaternion: " + str(quaternion))
 	print("Euler: " + str(euler))
-
-

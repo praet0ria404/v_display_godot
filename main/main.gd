@@ -2,7 +2,7 @@ class_name Main
 extends Node2D
 
 
-var NetworkManagerInstance: NetworkManager = NetworkManager.new()
+@onready var NetworkManagerInstance: NetworkManager = $NetworkManager
 
 @onready var StartInstance: Start = $Start
 
@@ -29,3 +29,5 @@ func _start_tracking() -> void:
 
 func _physics_process(_delta: float) -> void:
 	print(NetworkManagerInstance.get_unix_time())
+
+
