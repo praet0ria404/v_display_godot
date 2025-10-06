@@ -5,15 +5,17 @@ extends Node2D
 const POINT_SCENE: PackedScene = preload("res://debug/point.tscn")
 
 var Points: Array[ColorRect]
-var NetworkManagerInstance: NetworkManager = NetworkManager.new()
 
-@onready var LeftEye: ColorRect
-@onready var RightEye: ColorRect
-@onready var Line: Line2D
+@onready var LeftEye: ColorRect = $LeftEye
+@onready var RightEye: ColorRect = $RightEye
+@onready var Line: Line2D = $EyeLine
 @onready var PointCollection: Node2D = $Points
+@onready var NetworkManagerInstance: NetworkManager = $NetworkManager
 
 
 func _ready() -> void:
+	NetworkManagerInstance.start_osf()
+
 	for i in range(68):
 		var Point: ColorRect = POINT_SCENE.instantiate()
 		Point.get_child(0).text = str(i)
@@ -29,6 +31,7 @@ func _process(_delta: float) -> void:
 		var y_packets: Array[float] = NetworkManagerInstance.get_y_packets()
 		var right_eye: float = NetworkManagerInstance.get_right_eye()
 		var left_eye: float = NetworkManagerInstance.get_left_eye()
+		print(x_packets[0])
 
 		for i in range(68):
 			Points[i].position = Vector2(x_packets[i], y_packets[i])
@@ -55,5 +58,3 @@ func _input(event: InputEvent) -> void:
 		get_tree().change_scene_to_packed(
 			load("res://titlescreen/titlescreen.tscn")
 		)
-
-

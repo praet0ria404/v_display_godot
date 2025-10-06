@@ -9,74 +9,74 @@ const BOOL: Array = [1, "b"]
 
 var Peer: PacketPeerUDP = PacketPeerUDP.new()
 
-var unix_time: float
-var face_id: int
-var screen_width: float
-var screen_height: float
-var right_eye: float
-var left_eye: float
-var detected_face: int
-var pnp_error: float
-var quaternion: Array
-var euler: Array
-var translation: Array
-var y_packets: Array[float]
-var x_packets: Array[float]
-var has_packets: bool
+var _unix_time: float
+var _face_id: int
+var _screen_width: float
+var _screen_height: float
+var _right_eye: float
+var _left_eye: float
+var _detected_face: int
+var _pnp_error: float
+var _quaternion: Array
+var _euler: Array
+var _translation: Array
+var _y_packets: Array[float]
+var _x_packets: Array[float]
+var _has_packets: bool
 
-var new_thread: Thread
+var NewThread: Thread
 
 
 func get_unix_time() -> float:
-	return self.unix_time
+	return _unix_time
 
 
 func get_face_id() -> int:
-	return self.face_id
+	return _face_id
 
 
 func get_screen_width() -> float:
-	return self.screen_width
+	return _screen_width
 
 
 func get_screen_height() -> float:
-	return self.screen_height
+	return _screen_height
 
 
 func get_right_eye() -> float: 
-	return self.right_eye
+	return _right_eye
 
 
 func get_left_eye() -> float:
-	return self.left_eye
+	return _left_eye
 
 
 func has_detected_face() -> bool:
-	return self.detected_face as bool
+	return _detected_face as bool
 
 
 func get_pnp_error() -> float: 
-	return self.pnp_error
+	return _pnp_error
 
 
 func get_quaternion() -> Array[float]:
-	return self.translation
+	return _quaternion
 
 
 func get_euler() -> Array[float]:
-	return self.translation
+	return _euler
 
 
 func get_translation() -> Array[float]:
-	return self.translation
+	return _translation
 
 
 func get_x_packets() -> Array[float]:
-	return self.x_packets
+	return _x_packets
 
 
 func get_y_packets() -> Array[float]:
-	return self.y_packets
+	return _y_packets
 
 
 func has_packet() -> bool:
@@ -84,13 +84,13 @@ func has_packet() -> bool:
 
 
 func start_osf() -> void:
-	new_thread = Thread.new()
-	new_thread.start(Callable(self, '_thread'))
+	NewThread = Thread.new()
+	NewThread.start(Callable(self, '_thread'))
 
 
 func _thread() -> void:
-	print("start new thread")
-	OS.execute('python3', ['open_see_face/OpenSeeFace-master/facetracker.py', '-p 4433', '-v 2'])
+	# Starts new python3-thread of open_see_face
+	OS.execute('python3', ['open_see_face/OpenSeeFace-master/facetracker.py', '-p 4433'])
 
 
 func _init() -> void:
@@ -98,7 +98,6 @@ func _init() -> void:
 
 
 func _connect_to_port() -> void:
-	print("Connected")
 	Peer.bind(4433)
 
 
@@ -114,19 +113,12 @@ func _process(_delta: float) -> void:
 
 func _decode_packet(packet: PackedByteArray) -> void:
 	unix_time = _decode_bytes(packet, DOUBLE)[0]
-
 	face_id = _decode_bytes(packet, INT)[0]
-
 	screen_width = _decode_bytes(packet, FLOAT)[0]
-	
 	screen_height = _decode_bytes(packet, FLOAT)[0]
-
 	right_eye = _decode_bytes(packet, FLOAT)[0]
-
 	left_eye = _decode_bytes(packet, FLOAT)[0]
-
 	detected_face = _decode_bytes(packet, BOOL)[0]
-
 	pnp_error = _decode_bytes(packet, FLOAT)[0]
 
 	quaternion = [0.0, 0.0, 0.0, 0.0]
@@ -146,6 +138,8 @@ func _decode_packet(packet: PackedByteArray) -> void:
 		_decode_bytes(packet, FLOAT)
 
 	var t: bool = false
+	x_packets.clear()
+	y_packets.clear()
 
 	for i in range(136):
 		if t:
@@ -191,3 +185,5 @@ func _print_debug() -> void:
 	print("PNP error: " + str(pnp_error))
 	print("Quaternion: " + str(quaternion))
 	print("Euler: " + str(euler))
+
+

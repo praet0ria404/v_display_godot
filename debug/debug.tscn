@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://crkixo8gkaako"]
+[gd_scene load_steps=4 format=3 uid="uid://crkixo8gkaako"]
 
 [ext_resource type="Script" uid="uid://b04d77hro2ad4" path="res://debug/debug.gd" id="1_ikwhb"]
 [ext_resource type="Texture2D" uid="uid://c6cco0qpbpqlc" path="res://titlescreen/titlescreen_background.png" id="2_ifkhq"]
+[ext_resource type="Script" uid="uid://dc11g1v0h3pbp" path="res://network_manager/network_manager.gd" id="3_25h3d"]
 
 [node name="Debug" type="Node2D"]
 script = ExtResource("1_ikwhb")
@@ -12,14 +13,21 @@ texture = ExtResource("2_ifkhq")
 
 [node name="Points" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="LeftEye" type="ColorRect" parent="."]
 offset_left = 368.0
 offset_top = 80.0
 offset_right = 408.0
 offset_bottom = 120.0
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="RightEye" type="ColorRect" parent="."]
 offset_left = 432.0
 offset_top = 80.0
 offset_right = 472.0
 offset_bottom = 120.0
+
+[node name="NetworkManager" type="Node" parent="."]
+script = ExtResource("3_25h3d")
+metadata/_custom_type_script = "uid://dc11g1v0h3pbp"
+
+[node name="EyeLine" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)

@@ -3,7 +3,6 @@ extends Node2D
 
 
 @onready var NetworkManagerInstance: NetworkManager = $NetworkManager
-
 @onready var StartInstance: Start = $Start
 
 
