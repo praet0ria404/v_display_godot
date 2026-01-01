@@ -31,3 +31,7 @@ metadata/_custom_type_script = "uid://dc11g1v0h3pbp"
 
 [node name="EyeLine" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 240)
+zoom = Vector2(0.265, 0.265)
